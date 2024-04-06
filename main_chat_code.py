@@ -1,12 +1,15 @@
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 import openai
+from dotenv import load_dotenv
+import os
 
-# Замените 'YOUR_OPENAI_API_KEY' на ваш ключ API от OpenAI
-openai.api_key = 'YOUR_OPENAI_API_KEY'
+# Загружает переменные окружения из файла .env
+load_dotenv()
 
-# Замените 'YOUR_TELEGRAM_BOT_TOKEN' на токен вашего бота от BotFather
-TELEGRAM_BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'
+# Использует значения из переменных окружения
+openai.api_key = os.getenv('OPENAI_API_KEY')
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 
 def start(update: Update, context: CallbackContext) -> None:
     """Отправляет приветственное сообщение при команде /start."""
