@@ -18,7 +18,7 @@ def start(update: Update, context: CallbackContext) -> None:
 def generate_response(message_text: str) -> str:
     """Генерирует ответ на сообщение с помощью OpenAI GPT."""
     response = openai.Completion.create(
-      engine="text-davinci-003",  # Можете выбрать другую модель
+      engine="gpt-3.5-turbo-0613",  # Можете выбрать другую модель
       prompt=message_text,
       max_tokens=50  # Максимальное количество токенов в ответе
     )
